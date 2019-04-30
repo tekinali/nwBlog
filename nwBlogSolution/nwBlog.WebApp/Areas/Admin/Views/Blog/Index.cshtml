@@ -1,0 +1,118 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.Blog
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardCategories" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Kategoriler</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardCategories">
+                <div class="card-body">
+                    <a href="@Url.Action("Index","Blog",new { id=-1})" class="btn btn-secondary btn-sm m-md-1">Tümü</a>
+                    @Html.Partial("_PartialCategoriesMenu",Model.Categories)
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Bloglar</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtBlogs" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Başlık</th>
+                                <th>Sahip</th>
+                                <th>Tarih</th>
+                                <th>Kategoriler</th>
+                                <th class="text-center">Taslak</th>
+                                <th class="text-center">Durum</th>
+                                <th width="13%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Blogs)
+                            {
+                                <tr>
+                                    <td>@(item.Tittle.Length > 60 ? item.Tittle.Substring(0, 57) + "..." : item.Tittle)</td>
+                                    <td>@item.AppUser.Username</td>
+                                    <td>@item.CreatedOn</td>
+                                    <td>
+                                        @foreach (var itm in item.BlogCategories)
+                                        {
+                                            <span class="badge badge-info">@itm.Category.Name</span>
+                                        }
+                                    </td>
+                                    @if (item.IsDraft)
+                                    {
+                                        <td class="text-danger text-center"><span class="fa fa-times"></span> Taslak</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-success text-center"><span class="fa fa-check"></span> Yayında</td>
+                                    }
+
+                                    @if (item.IsDelete)
+                                    {
+                                        <td class="text-warning text-center"><span class="fa fa-times-circle"></span> Silinmiş</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-primary text-center"><span class="fa fa-check-circle"></span> Mevcut</td>
+                                    }
+
+                                    <td>
+                                        <a href="@Url.Action("Details","Blog",new { id=item.Id})" class="btn btn-success btn-circle btn-sm" title="Detaylar">
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>
+                                        <a href="@Url.Action("Edit","Blog",new { id=item.Id})" class="btn btn-warning btn-circle btn-sm" title="Düzenle">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="@Url.Action("Delete","Blog",new { id=item.Id})" class="btn btn-danger btn-circle btn-sm" title="Sil">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtBlogs').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

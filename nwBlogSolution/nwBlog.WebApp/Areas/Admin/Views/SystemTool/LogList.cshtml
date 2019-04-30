@@ -1,0 +1,60 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model LogListViewModel
+
+@{
+    ViewBag.Title = "LogList";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">İşlem Listesi</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtLogs" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Kullanıcı</th>
+                                <th>Action Name</th>
+                                <th>Controller Name</th>
+                                <th>Content</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Logs)
+                            {
+                            <tr>
+                                <td>@item.DateTime</td>
+                                <td>@item.Username</td>
+                                <td>@item.ActionName</td>
+                                <td>@item.ControllerName</td>
+                                <td>@item.Content</td>
+
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtLogs').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}
+

@@ -1,0 +1,29 @@
+﻿@using nwBlog.Entities
+@model List<Category>
+
+@{
+    int i = 4;
+}
+
+@foreach (var item in Model)
+{
+    if (i % 2 == 0)
+    {
+        <a href="@Url.Action("Index","Blog",new { id=item.Id})" class="btn btn-warning btn-sm m-md-1">@item.Name</a>
+    }
+    else if (i % 3 == 0)
+    {
+        <a href="@Url.Action("Index","Blog",new { id=item.Id})" class="btn btn-danger btn-sm m-md-1">@item.Name</a>
+    }
+    else if (i % 5 == 0)
+    {
+        <a href="@Url.Action("Index","Blog",new { id=item.Id})" class="btn btn-info btn-sm m-md-1">@item.Name</a>
+    }
+    else
+    {
+        <a href="@Url.Action("Index","Blog",new { id=item.Id})" class="btn btn-primary btn-sm m-md-1">@item.Name</a>
+    }
+
+
+    { i++; }
+}

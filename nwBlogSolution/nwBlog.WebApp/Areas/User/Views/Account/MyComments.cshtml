@@ -1,0 +1,45 @@
+﻿@using nwBlog.Entities
+@model List<Comment>
+
+@{
+    ViewBag.Title = "MyComments";
+}
+
+<div class="row pt-4 pb-5">
+    <div class="col-lg-12">
+        <h2>Yorumlarım</h2>
+
+        @if (Model.Count() == 0)
+        {
+            <div class="alert alert-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <strong>Yorumunuz bulunmamaktadır.</strong>
+            </div>
+        }
+        else
+        {
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Blog</th>
+                        <th scope="col">Yorum</th>
+                        <th scope="col">Tarih</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><a href="@Url.Action("BlogPost","Home",new {@Blog=item.AppBlog.Id })">@(item.AppBlog.Tittle.Length > 40 ? item.AppBlog.Tittle.Substring(0, 37) + "..." : item.AppBlog.Tittle)</a></td>
+                            <td>@item.Text</td>
+                            <td>@item.CreatedOn.ToString("d MMMM dddd yyyy hh:mm")</td>
+                            <td><a href="@Url.Action("DeleteComment","Account",new {@id=item.Id })" class="btn btn-danger btn-sm">Sil</a></td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model nwBlog.Entities.Blog
+
+<!-- Blog Post -->
+<div class="card mb-4">
+    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+    <div class="card-body"> 
+        <h2 class="card-title">@Model.Tittle</h2>
+        <p class="card-text">
+            @(Model.Summary.Length > 170 ? Model.Summary.Substring(0, 167) + "..." : Model.Summary)
+        </p>
+        <a href="@Url.Action("BlogPost","Home",new {@Blog=Model.Id })" class="btn btn-primary">Devamını oku <span class="fa fa-long-arrow-right"></span></a>
+        <span class="pull-right">
+            Kategori :
+            @foreach (var item in Model.BlogCategories)
+            {
+                <i class="badge badge-info">@item.Category.Name</i>
+            }
+        </span>
+    </div>
+    <div class="card-footer text-muted">
+        @Model.CreatedOn.ToString("dddd d MMMM yyyy hh:mm")
+        -<span><i> @Model.AppUser.Username</i></span>
+    </div>
+</div>
+
+

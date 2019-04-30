@@ -1,0 +1,72 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.Category
+@model IndexViewModel
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Kategori Listesi</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtCategoires" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Kategori Adı</th>
+                                <th>Blog Sayısı</th>
+                                <th>Oluşturma Tarihi</th>
+                                <th style="width:15%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.categories)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.BlogCategories.Count</td>
+                                    <td>@item.CreatedOn</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Category",new { id=item.Id })" class="btn btn-success btn-circle btn-sm" title="Detaylar">
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>
+                                        <a href="@Url.Action("Edit","Category",new { id=item.Id })" class="btn btn-warning btn-circle btn-sm" title="Düzenle">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </a>
+                                        <a href="@Url.Action("Delete","Category",new { id=item.Id })" class="btn btn-danger btn-circle btn-sm" title="Sil">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+</div>
+
+
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtCategoires').DataTable({
+                "language":
+                {
+                    "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

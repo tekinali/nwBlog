@@ -1,0 +1,59 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model ListAdminViewModel
+
+@{
+    ViewBag.Title = "ListAdmin";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Yönetici Listesi</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtUsers" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Kullanıcı Adı</th>
+                                <th>Ad - Soyad</th>                            
+                                <th class="text-center" style="width:5%;"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Admins)
+                            {
+                                <tr>
+                                    <td>@item.Username</td>
+                                    <td>@(item.Name + " " + item.Surname)</td>
+                                    <td>
+                                        <a href="@Url.Action("AdminDetails","SystemTool",new { @userId=item.Id })" class="btn btn-success btn-circle btn-sm" title="Detaylar">
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>                                 
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtUsers').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

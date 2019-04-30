@@ -1,0 +1,21 @@
+﻿@using nwBlog.Entities
+@model List<Tag>
+
+<!-- Tags Widget -->
+<div class="card border-danger my-4">
+    <h5 class="card-header">Etiketler</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="list-unstyled list-inline mb-0">
+                    @foreach (var item in Model)
+                    {
+                        <li class="list-inline-item">
+                            <a href="#" class="badge badge-danger">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

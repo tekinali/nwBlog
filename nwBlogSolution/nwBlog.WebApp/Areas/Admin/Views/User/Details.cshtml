@@ -1,0 +1,337 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.User
+@model DetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Kişisel Bilgiler</h6>
+            </div>
+            <div class="card-body">
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="Username">Kullanıcı Adı</label>
+                        @Html.TextBoxFor(model => model.User.Username, new { @class = "form-control", @id = "Username", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="Name">Ad</label>
+                        @Html.TextBoxFor(model => model.User.Name, new { @class = "form-control", @id = "Name", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="Surname">Soyad</label>
+                        @Html.TextBoxFor(model => model.User.Surname, new { @class = "form-control", @id = "Surname", @readonly = "" })
+                    </div>
+
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="Username">Hakkında</label>
+                        @Html.TextAreaFor(model => model.User.About, new { @class = "form-control", @id = "About", @readonly = "", @rows = "2" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="CityId">Şehir</label>
+                        @Html.TextBoxFor(model => model.User.City.Name, new { @class = "form-control", @id = "CityId", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="Email">Email</label>
+                        @Html.TextBoxFor(model => model.User.Email, new { @class = "form-control", @id = "Email", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label for="CreatedOn">Kayıt Tarihi</label>
+                        @Html.TextBoxFor(model => model.User.CreatedOn, new { @class = "form-control", @id = "CreatedOn", @readonly = "" })
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="ModifiedOn">Değitirme Tarihi</label>
+                        @Html.TextBoxFor(model => model.User.ModifiedOn, new { @class = "form-control", @id = "ModifiedOn", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="ModifiedUsername">Değitiren</label>
+                        @Html.TextBoxFor(model => model.User.ModifiedUsername, new { @class = "form-control", @id = "ModifiedUsername", @readonly = "" })
+                    </div>
+
+                    <div class="form-group col-md-2 text-center">
+                        <label for="role">Roller</label><br />
+                        @foreach (var item in Model.Roles)
+                        {
+                            <span class="badge badge-primary" style="font-size:15px;">@item.Name</span>
+                        }
+
+                    </div>
+
+                    <div class="form-group col-md-2 text-center">
+                        <label for="">Aktif</label><br />
+                        @if (Model.User.IsActive)
+                        {
+                            <span class="badge badge-pill badge-success" style="font-size:15px;"><span class="fa fa-check"></span></span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-pill badge-danger" style="font-size:15px;"><span class="fa fa-times"></span></span>
+                        }
+                    </div>
+
+                    <div class="form-group col-md-2 text-center">
+                        <label for="">Durum</label><br />
+                        @if (Model.User.IsDeleted)
+                        {
+                            <span class="badge badge-pill badge-danger" style="font-size:15px;"><span class="fa fa-times-circle"></span> Silinmiş</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-pill badge-success" style="font-size:15px;"><span class="fa fa-check-circle"></span> Mevcut</span>
+                        }
+                    </div>
+
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <a href="@Url.Action("Index","User")" class="btn btn-secondary btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                            <span class="text" style="width:120px;">Listeye Dön</span>
+                        </a> &nbsp;
+                        <a href="@Url.Action("Edit","User",new { id=Model.User.Id})" class="btn btn-warning btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-user-edit"></i>
+                            </span>
+                            <span class="text" style="width:120px;">Düzenle</span>
+                        </a> &nbsp;
+
+                        <a href="@Url.Action("Delete","User",new { id=Model.User.Id })" class="btn btn-danger btn-icon-split">
+                            <span class="icon text-white-50">
+                                <i class="fas fa-trash"></i>
+                            </span>
+                            <span class="text" style="width:120px;">Sil</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Likes-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardLikes" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Beğeniler</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardLikes">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover" id="dtLikes" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Blog</th>
+                                    <th>Sahip</th>
+                                    <th>Beğenme Tarihi</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Likes)
+                                {
+                                    <tr>
+                                        <td>@(item.Blog.Tittle.Length > 70 ? item.Blog.Tittle.Substring(0, 67) + "..." : item.Blog.Tittle)</td>
+                                        <td>@item.Blog.AppUser.Username</td>
+                                        <td>@item.CreatedOn</td>
+
+                                        <td>
+                                            <a href="@Url.Action("Details","Blog",new { id=item.BlogId })" class="btn btn-success btn-circle btn-sm" title="Bloğa Git">
+                                                <i class="fas fa-angle-right"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Commnets-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardComments" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Yorumlar</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardComments">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover" id="dtComments" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Blog</th>
+                                <th>Yorum</th>
+                                <th>Yorum Tarihi</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Comments)
+                            {
+                                <tr>
+                                    <td>@(item.AppBlog.Tittle.Length > 40 ? item.AppBlog.Tittle.Substring(0, 37) + "..." : item.AppBlog.Tittle)</td>
+                                    <td>@item.Text</td>
+                                    <td>@item.CreatedOn</td>
+                                    <td>
+                                        <a href="@Url.Action("Details","Blog",new { id=item.BlogId })" class="btn btn-success btn-circle btn-sm" title="Bloğa Git">
+                                            <i class="fas fa-angle-right"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Visits-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardVisits" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">Ziyaretler</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardVisits">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover" id="dtVisits" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Ip Adres</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.LastVisits)
+                            {
+                                <tr>
+                                    <td>@item.DateTime</td>
+                                    <td>@item.IpAddress</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Logs-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardLogs" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">İşlem Geçmişi</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardLogs">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover" id="dtLogs" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Action Name</th>
+                                <th>Controller Name</th>
+                                <th>Content</th>
+                                <th>Date Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Logs)
+                            {
+                                <tr>
+                                    <td>@item.ActionName</td>
+                                    <td>@item.ControllerName</td>
+                                    <td>@item.Content</td>
+                                    <td>@item.DateTime</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtLikes').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+
+            $('#dtComments').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+
+            $('#dtVisits').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+            $('#dtLogs').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+        });
+
+    </script>
+}

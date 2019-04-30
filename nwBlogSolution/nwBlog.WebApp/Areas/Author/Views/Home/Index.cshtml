@@ -1,0 +1,56 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using nwBlog.Entities
+@model IPagedList<Blog>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-8 pt-4">
+        @if (Model.Count() == 0)
+        {
+            <div class="alert alert-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <strong>Seçtiğiniz kategoride blog bulunamadı.</strong>
+            </div>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+
+                @Html.Partial("_PartialBlogPost", item)
+            }
+            <!-- Pagination -->
+            <div class="pagedList pagination">
+                @if (ViewBag.CategoryId != null)
+                {
+                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page, @Category = (int)ViewBag.CategoryId }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                }
+                else
+                {
+                    @Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+                }
+            </div>
+        }
+    </div>
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        @*Search*@
+        @{Html.RenderAction("PartialSearch", "Home");}
+
+        @*Categories*@
+        @{Html.RenderAction("CategoryList", "Home");}
+
+        @*Tags*@
+        @{Html.RenderAction("TagList", "Home");}
+    </div>
+</div>
+<!-- /.row -->
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

@@ -1,0 +1,52 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using nwBlog.Entities
+@model IPagedList<Blog>
+
+@{
+    ViewBag.Title = "Search";
+}
+<div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-8 pt-4">
+        @if (Model.Count() == 0)
+        {
+            <div class="alert alert-warning">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <strong>Arama sonucu blog bulunamadı.</strong>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-success">
+                <span class="glyphicon glyphicon-info-sign"></span>
+                <strong>Arama sonucu @ViewBag.Count blog bulundu.</strong>
+            </div>
+            foreach (var item in Model)
+            {
+
+                @Html.Partial("_PartialBlogPost", item)
+            }
+            <!-- Pagination -->
+            <div class="pagedList pagination">
+                @Html.PagedListPager(Model, Page => Url.Action("Search", new { Page, @q = (string)ViewBag.q }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+            </div>
+        }
+    </div>
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        @*Search*@
+        @{Html.RenderAction("PartialSearch", "Home");}
+
+        @*Categories*@
+        @{Html.RenderAction("CategoryList", "Home");}
+
+        @*Tags*@
+        @{Html.RenderAction("TagList", "Home");}
+    </div>
+</div>
+<!-- /.row -->
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

@@ -1,0 +1,138 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.Home
+@model IndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- Content Row -->
+<div class="row">
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">Kullanıcı</div>
+                        <div class="h4 mb-0 font-weight-bold text-gray-800">@Model.UsersCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-fw fa-users fa-3x text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-success text-uppercase mb-1">Yazar</div>
+                        <div class="h4 mb-0 font-weight-bold text-gray-800">@Model.AuthorUserCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-fw fa-user-tie fa-3x text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-info text-uppercase mb-1">Blog</div>
+                        <div class="h4 mb-0 font-weight-bold text-gray-800">@Model.BlogsCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-book-open fa-3x text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-sm font-weight-bold text-warning text-uppercase mb-1">Kategori</div>
+                        <div class="h4 mb-0 font-weight-bold text-gray-800">@Model.CategoriesCount</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-fw fa-th fa-3x text-gray-500"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Content Row -->
+<div class="row">
+    <div class="col-md-12">
+        <!-- Basic Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Son 5 Blog</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Başlık</th>
+                            <th scope="col">Tarih</th>
+                            <th scope="col">Sahip</th>
+                            <th scope="col">Konum</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @{int i = 1;}
+                        @foreach (var item in Model.BlogsLast5)
+                        {
+
+
+                            <tr>
+                                <th scope="row">@(i++)</th>
+
+                                <td>@(item.Tittle.Length > 50 ? item.Tittle.Substring(0, 47) + "..." : item.Tittle)</td>
+                                <td>@item.CreatedOn</td>
+                                <td>@item.AppUser.Username</td>
+                                @if (item.IsDraft)
+                                {
+                                    <td class="text-danger"><span class="fa fa-times"></span> Taslak</td>
+                                }
+                                else
+                                {
+                                    <td class="text-success"><span class="fa fa-check"></span> Yayında</td>
+                                }
+                                <td><a href="@Url.Action("Details","Blog",new { id=item.Id})" class="btn btn-secondary btn-circle btn-sm"><i class="fas fa-angle-right"></i></a></td>
+                            </tr>
+
+                        }
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

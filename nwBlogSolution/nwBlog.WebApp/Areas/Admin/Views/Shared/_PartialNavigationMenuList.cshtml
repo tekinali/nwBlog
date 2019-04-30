@@ -1,0 +1,154 @@
+﻿@using nwBlog.WebApp.Helpers;
+<!-- Nav Item - Dashboard -->
+<li class="nav-item @Html.ActivePage("Home","Index")">
+    <a class="nav-link " href="@Url.Action("Index","Home",new { area="Admin"})">
+        <i class="fas fa-fw fa-tachometer-alt"></i>
+        <span>Panel</span>
+    </a>
+</li>
+<!-- Divider -->
+<hr class="sidebar-divider">
+
+<!-- Heading -->
+<div class="sidebar-heading">
+    Menü
+</div>
+
+@*Kullanıcılar*@
+<li class="nav-item @Html.ActivePage("User","Index") @Html.ActivePage("User","Create")  @Html.ActivePage("User","Details") @Html.ActivePage("User","Delete")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-fw fa-users"></i>
+        <span>Kullanıcılar</span>
+    </a>
+    <div id="collapse1" class="collapse @Html.ActivePageShow("User","Index") @Html.ActivePageShow("User","Create") @Html.ActivePageShow("User","Details") @Html.ActivePageShow("User","Delete")" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("User","Index")" href="@Url.Action("Index","User",new { area="Admin"})">Listele</a>
+            <a class="collapse-item @Html.ActivePage("User","Create")" href="@Url.Action("Create","User",new { area="Admin"})">Ekle</a>
+        </div>
+    </div>
+</li>
+
+@*Yazarlar*@
+<li class="nav-item @Html.ActivePage("AuthorUser","Index") @Html.ActivePage("AuthorUser","Create") @Html.ActivePage("AuthorUser","Details") @Html.ActivePage("AuthorUser","Delete")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-user-tie"></i>
+        <span>Yazarlar</span>
+    </a>
+    <div id="collapse2" class="collapse @Html.ActivePageShow("AuthorUser","Index") @Html.ActivePageShow("AuthorUser","Create") @Html.ActivePageShow("AuthorUser","Details") @Html.ActivePageShow("AuthorUser","Delete")" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("AuthorUser","Index")" href="@Url.Action("Index","AuthorUser",new { area="Admin"})">Listele</a>
+            <a class="collapse-item @Html.ActivePage("AuthorUser","Create")" href="@Url.Action("Create","AuthorUser",new { area="Admin"})">Ekle</a>
+        </div>
+    </div>
+</li>
+
+@*Bloglar*@
+<li class="nav-item  @Html.ActivePage("Blog","Index") @Html.ActivePage("Blog","Create") @Html.ActivePageShow("Blog","Details") @Html.ActivePage("Blog","Delete")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-book-open"></i>
+        <span>Bloglar</span>
+    </a>
+    <div id="collapse3" class="collapse @Html.ActivePageShow("Blog","Index") @Html.ActivePageShow("Blog","Create") @Html.ActivePageShow("Blog","Details") @Html.ActivePage("Blog","Delete")" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("Blog","Index")" href="@Url.Action("Index","Blog",new { area="Admin"})">Listele</a>
+            <a class="collapse-item @Html.ActivePage("Blog","Create")" href="@Url.Action("Create","Blog",new { area="Admin"})">Ekle</a>
+        </div>
+    </div>
+</li>
+
+@*Kategoriler*@
+<li class="nav-item  @Html.ActivePage("Category","Index") @Html.ActivePage("Category","Create") @Html.ActivePage("Category","Details")  @Html.ActivePage("Category","Edit")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-fw fa-th"></i>
+        <span>Kategoriler</span>
+    </a>
+    <div id="collapse4" class="collapse @Html.ActivePageShow("Category","Index") @Html.ActivePageShow("Category","Create") @Html.ActivePageShow("Category","Details") @Html.ActivePageShow("Category","Edit")" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("Category","Index")" href="@Url.Action("Index","Category",new { area="Admin"})">Listele</a>
+            <a class="collapse-item @Html.ActivePage("Category","Create")" href="@Url.Action("Create","Category",new { area="Admin"})">Ekle</a>
+        </div>
+    </div>
+</li>
+
+
+@*Ziayretler*@
+<li class="nav-item  @Html.ActivePage("Visit","ListUsers") @Html.ActivePage("Visit","ListAuthorUsers") ">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-clock"></i>
+        <span>Ziyaretler</span>
+    </a>
+    <div id="collapse5" class="collapse @Html.ActivePageShow("Visit","ListUsers") @Html.ActivePageShow("Visit","ListAuthorUsers")" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("Visit","ListUsers")" href="@Url.Action("ListUsers","Visit",new { area="Admin"})">Kullanıcılar</a>
+            <a class="collapse-item @Html.ActivePage("Visit","ListAuthorUsers")" href="@Url.Action("ListAuthorUsers","Visit",new { area="Admin"})">Yazarlar</a>
+        </div>
+    </div>
+</li>
+
+@*İşlem Geçmişi*@
+<li class="nav-item  @Html.ActivePage("Log","ListUsers") @Html.ActivePage("Log","ListAuthorUsers")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapseUtilities">
+        <i class="fas fa-eye"></i>
+        <span>İşlem Geçmişi</span>
+    </a>
+    <div id="collapse6" class="collapse @Html.ActivePageShow("Log","ListUsers") @Html.ActivePageShow("Log","ListAuthorUsers") " aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("Log","ListUsers")" href="@Url.Action("ListUsers","Log",new { area="Admin"})">Kullanıcılar</a>
+            <a class="collapse-item @Html.ActivePage("Log","ListAuthorUsers")" href="@Url.Action("ListAuthorUsers","Log",new { area="Admin"})">Yazarlar</a>
+        </div>
+    </div>
+</li>
+
+
+<!-- Divider -->
+<hr class="sidebar-divider">
+<!-- Heading -->
+<div class="sidebar-heading">
+    Sistem
+</div>
+
+@*sabit tablolar*@
+<li class="nav-item @Html.ActivePage("SystemTool","CityList") @Html.ActivePage("SystemTool","RoleList") @Html.ActivePage("SystemTool","LogList") @Html.ActivePage("SystemTool","VisitList") ">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-puzzle-piece"></i>
+        <span>Sabit Tablolar</span>
+    </a>
+    <div id="collapse7" class="collapse @Html.ActivePageShow("SystemTool","CityList") @Html.ActivePageShow("SystemTool","RoleList") @Html.ActivePageShow("SystemTool","LogList") @Html.ActivePageShow("SystemTool","VisitList")" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("SystemTool","CityList")" href="@Url.Action("CityList","SystemTool",new { area="Admin"})">Şehirler</a>
+            <a class="collapse-item @Html.ActivePage("SystemTool","RoleList")" href="@Url.Action("RoleList","SystemTool",new { area="Admin"})">Roller</a>
+            <a class="collapse-item @Html.ActivePage("SystemTool","LogList")" href="@Url.Action("LogList","SystemTool",new { area="Admin"})">Tüm İşlem Geçmişleri</a>
+            <a class="collapse-item @Html.ActivePage("SystemTool","VisitList")" href="@Url.Action("VisitList","SystemTool",new { area="Admin"})">Tüm Ziyaretler</a>
+        </div>
+    </div>
+</li>
+
+@*rolleri düzenle*@
+<li class="nav-item @Html.ActivePage("SystemTool","UserListWithRole") @Html.ActivePage("SystemTool","EditUser")">
+    <a class="nav-link " href="@Url.Action("UserListWithRole","SystemTool",new { area="Admin"})">
+        <i class="fas fa-users-cog"></i>
+        <span>Rolleri Düzenle</span>
+    </a>
+</li>
+
+@*Yöneticiler*@
+<li class="nav-item @Html.ActivePage("SystemTool","ListAdmin") @Html.ActivePage("SystemTool","AdminDetails")">
+    <a class="nav-link " href="@Url.Action("ListAdmin","SystemTool",new { area="Admin"})">
+        <i class="fas fa-user-shield"></i>
+        <span>Yöneticiler</span>
+    </a>
+</li>
+
+@*Sistemden kaldırma*@
+<li class="nav-item @Html.ActivePage("SystemTool","RemoveUserList") @Html.ActivePage("SystemTool","RemoveBlogList") @Html.ActivePage("SystemTool","RemoveBlog")   @Html.ActivePage("SystemTool","RemoveUser")">
+    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse10" aria-expanded="true" aria-controls="collapseTwo">
+        <i class="fas fa-trash"></i>
+        <span>Sistemden Kaldırma</span>
+    </a>
+    <div id="collapse10" class="collapse @Html.ActivePageShow("SystemTool","RemoveUserList") @Html.ActivePageShow("SystemTool","RemoveBlogList") @Html.ActivePageShow("SystemTool","RemoveBlog") @Html.ActivePageShow("SystemTool","RemoveUser")" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item @Html.ActivePage("SystemTool","CityList")" href="@Url.Action("RemoveUserList","SystemTool",new { area="Admin"})">Kullanıcı</a>
+            <a class="collapse-item @Html.ActivePage("SystemTool","RoleList")" href="@Url.Action("RemoveBlogList","SystemTool",new { area="Admin"})">Blog</a>     
+        </div>
+    </div>
+</li>

@@ -1,0 +1,91 @@
+﻿@using nwBlog.WebApp.Areas.User.ViewModels.Account
+@model MyInfoViewModel
+
+@{
+    ViewBag.Title = "MyInfo";
+}
+
+<div class="row pt-4 pb-5">
+    <div class="col-lg-12">
+        <h2>Bilgilerim</h2>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="Name">Ad</label>
+                @Html.TextBoxFor(model => model.User.Name, new { @class = "form-control", @id = "Name", @readonly = "" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="Surname">Soyad</label>
+                @Html.TextBoxFor(model => model.User.Surname, new { @class = "form-control", @id = "Surname", @readonly = "" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="Username">Kullanıcı Adı</label>
+                @Html.TextBoxFor(model => model.User.Username, new { @class = "form-control", @id = "Username", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="City">Şehir</label>
+                @Html.TextBoxFor(model => model.User.City.Name, new { @class = "form-control", @id = "City", @readonly = "" })
+
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="Email">Eposta</label>
+                @Html.TextBoxFor(model => model.User.Email, new { @class = "form-control", @id = "Email", @readonly = "" })
+            </div>
+
+            <div class="form-group col-md-4">
+                <label for="CreatedOn">Kayıt Tarihi</label>
+                @Html.TextBoxFor(model => model.User.CreatedOn, new { @class = "form-control", @id = "CreatedOn", @readonly = "" })
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-md-12">
+                <label for="CreatedOn">Hakkımda</label>
+                @Html.TextAreaFor(model => model.User.About, new { @class = "form-control", @id = "CreatedOn", @readonly = "", @rows = "3" })
+            </div>
+
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <a href="@Url.Action("MyInfoEdit","Account")" class="btn btn-info">Düzenle</a> &nbsp; &nbsp;
+                <a href="@Url.Action("ChangePassword","Account")" class="btn btn-secondary">Parolamı Değiştir</a>
+            </div>
+
+            <div class="form-group col-md-6 text-right">
+                <button type="button" data-toggle="modal" data-target="#deleteOkmodal" class="btn btn-danger btn-icon-split">                   
+                    <span class="text" style="width:100px;">Hesabımı Sil</span>
+                </button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteOkmodal" tabindex="-1" role="dialog" aria-labelledby="deleteOkmodalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteOkmodalTitle"><b>Uyarı</b></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">                       
+                        <p>Hesabınızı silmek üzeresiniz.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Vazgeç</button>
+                        <a href="@Url.Action("DeleteAccount","Account")" class="btn btn-danger">Sil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,59 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model RoleListViewModel
+
+@{
+    ViewBag.Title = "RoleList";
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Rol Listesi</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtRoles" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Rol Adı</th>
+                                <th>Açıklama</th>
+                                <th>Üye Sayısı</th>
+                                <th>Eklenme Tarihi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Roles)
+                            {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.Description</td>
+                                <td>@item.UserRoles.Count()</td>
+                                <td>@item.CreatedOn</td>
+
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtRoles').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}
+

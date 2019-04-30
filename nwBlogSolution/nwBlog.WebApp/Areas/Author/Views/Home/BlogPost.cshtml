@@ -1,0 +1,127 @@
+﻿@using nwBlog.WebApp.Areas.Author.ViewModels.Home
+@model BlogPostViewModel
+
+@{
+    ViewBag.Title = "BlogPost";
+}
+
+
+<div id="zoomButton">
+    <button type="button" class="btn btn-outline-primary btn-sm kucult yukari_boyut "><span class="fa fa-minus"></span></button>
+    <button type="button" class="btn btn-outline-secondary btn-sm sifirla yukari_boyut "><span class="fa fa-refresh"></span></button>
+    <button type="button" class="btn btn-outline-success btn-sm buyult yukari_boyut "><span class="fa fa-plus"></span></button>
+</div>
+<div class="row">
+    <!-- Post Content Column -->
+    <div class="col-md-8 pt-4 text">
+        <!-- Title -->
+        <h1 class="mt-4">@Model.Blog.Tittle</h1>
+
+        <hr>
+        <!-- Date/Time -->
+        <div class="row" style="margin-bottom:-20px;">
+            <div class="col-md-6">
+                <p>
+                    @Model.Blog.CreatedOn.ToString("d MMMM dddd yyyy hh:mm")
+                </p>
+            </div>
+            <div class="col-md-6 text-right">
+                <p>
+                    <i>Kategori:</i>
+                    @foreach (var item in Model.Blog.BlogCategories)
+                    {
+                        <span class="badge badge-primary">@item.Category.Name</span>
+                    }
+                </p>
+            </div>
+        </div>
+
+
+        <hr>
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+        <hr>
+        <!-- Post Content -->
+        <p class="lead text">@Model.Blog.Summary</p>
+        <hr />
+        @Html.Raw(Model.Blog.Text)
+
+        <p class="text-right"><i>Yazar: </i><a href="@Url.Action("UserDetails","Home",new {@User=Model.Blog.AppUser.Username })">@Model.Blog.AppUser.Username</a> </p>
+
+        <hr />
+        <div class="row">
+            <div class="col-md-9">
+                <i>Etiketler:</i>
+                @foreach (var item in Model.Blog.Tags)
+                {
+                    <span class="badge badge-danger">@item.Name</span>
+                }
+            </div>
+            <div class="col-md-3 text-right">
+                @if (!Model.IsLiked)
+                {
+                    <a href="@Url.Action("SetLikeState","Home",new {@Blog=Model.Blog.Id })" class="btn btn-success btn-sm" title="Beğeni">@Model.LikeCount <span class="fa fa-heart"></span> Beğen</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("SetLikeState","Home",new {@Blog=Model.Blog.Id })" class="btn btn-danger btn-sm" title="Beğeni">@Model.LikeCount <span class="fa fa-heart"></span> Beğeni Kaldır</a>
+                }
+
+            </div>
+        </div>
+        <hr />
+
+        @using (Html.BeginForm("CreateComment", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="card my-4">
+                <h5 class="card-header">Yorumunuz:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            @Html.TextArea("Text", null, new { @class = "form-control", @rows = "3" })
+                            @Html.Hidden("BlogId", Model.Blog.Id)
+                        </div>
+                        <button type="submit" class="btn btn-primary">Yaz</button>
+                    </form>
+                </div>
+            </div>
+        }
+
+
+
+        <!-- Comments -->
+        <h3>Yorumlar</h3><br />
+        @foreach (var item in Model.Comments)
+        {
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">@item.AppUser.Username</h5>
+                    <h6 class="mt-0">@item.CreatedOn.ToString("d MMMM dddd yyyy hh:mm")</h6>
+                    @item.Text
+                </div>
+            </div>
+        }
+    </div>
+
+
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        @*Search*@
+        @{Html.RenderAction("PartialSearch", "Home");}
+
+        @*Categories*@
+        @{Html.RenderAction("CategoryList", "Home");}
+
+
+    </div>
+</div>
+<!-- /.row -->
+
+@section footer{
+    @Html.Partial("_PartialFooter")
+}

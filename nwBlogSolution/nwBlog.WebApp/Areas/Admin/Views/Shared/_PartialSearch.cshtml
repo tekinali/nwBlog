@@ -1,0 +1,14 @@
+﻿<!-- Topbar Search -->
+@using (Html.BeginForm("Search", "Blog", FormMethod.Get))
+{
+    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div class="input-group">
+            @Html.TextBox("q", "Ara...", new { @class = "form-control bg-light border-0 small", @aria_label = "Search" ,@aria_describedby = "basic-addon2" })
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-search fa-sm"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+}

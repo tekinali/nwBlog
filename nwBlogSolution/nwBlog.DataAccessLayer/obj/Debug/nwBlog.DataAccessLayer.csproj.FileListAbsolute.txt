@@ -1,0 +1,80 @@
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.dll.config
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\FakeData.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Common.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Core.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\shortid.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Common.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Core.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.dll.config
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\FakeData.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csproj.CopyComplete
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\Microsoft.Web.Helpers.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Helpers.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Razor.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.Data.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.WebData.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Helpers.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Razor.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.Data.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.WebData.xml
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Mvc.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Mvc.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.dll.config
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.DataAccessLayer.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\FakeData.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\Microsoft.Web.Helpers.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Common.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Core.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\shortid.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Helpers.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Razor.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.Data.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.WebData.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Mvc.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Common.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Core.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\nwBlog.Entities.dll.config
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\FakeData.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Helpers.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Razor.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.Data.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\WebMatrix.WebData.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\bin\Debug\System.Web.Mvc.xml
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.csproj.CopyComplete
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.DataAccessLayer\obj\Debug\nwBlog.DataAccessLayer.pdb

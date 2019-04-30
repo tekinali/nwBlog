@@ -1,0 +1,115 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model EditUserViewModel
+
+
+@{
+    ViewBag.Title = "EditUser";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Kullanıcı Bilgileri</h6>
+            </div>
+
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-row">
+                        @Html.HiddenFor(x => x.UserId)
+
+                        <div class="form-group col-md-4">
+                            <label for="Username">Kullanıcı Adı</label>
+                            @Html.TextBoxFor(model => model.Username, new { @class = "form-control", @id = "Username", @readonly = "" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="name">Ad</label>
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @id = "name", @readonly = "" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="Surname">Soyad</label>
+                            @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @id = "Surname", @readonly = "" })
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.RoleId, "Rol Seçiniz", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-6 text-left">
+                            <button type="submit" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text" style="width:70px;">Ekle</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                }
+
+
+
+                <div class="form-row">
+                    <a href="@Url.Action("UserListWithRole","SystemTool")" class="btn btn-secondary btn-icon-split">
+                        <span class="icon text-white-50">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        <span class="text" style="width:120px;">Listeye Dön</span>
+                    </a> &nbsp;
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Roller</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>Rol Adı</th>
+                                <th>Role Eklenme Tarihi</th>
+                                <th>Ekleyen Kullanıcı</th>
+                                <th width="10%;" class="text-right"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.UserRoles)
+                            {
+                                <tr>
+                                    <td>@item.AppRole.Name</td>
+                                    <td>@item.CreatedOn</td>
+                                    <td>@item.ModifiedUsername</td>
+                                    <td><a href="@Url.Action("DeleteUserRole","SystemTool",new {@usrId=Model.UserId, @urId=item.Id })" class="btn btn-danger btn-sm">Kaldır</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section createObj
+{ 
+}

@@ -1,0 +1,66 @@
+﻿@using nwBlog.WebApp.Areas.User.ViewModels.Account
+@model MyInfoEditViewModel
+
+@{
+    ViewBag.Title = "MyInfo";
+}
+
+<div class="row pt-4 pb-5">
+    <div class="col-lg-12">
+        <h2>Bilgilerim</h2>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="Name">Ad</label>
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @id = "Name" })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="Surname">Soyad</label>
+                    @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", @id = "Surname" })
+                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="City">Şehir</label>                
+                    @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="Email">Eposta</label>
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @id = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="col-md-12">
+                    <label for="CreatedOn">Hakkımda</label>
+                    @Html.TextAreaFor(model => model.About, new { @class = "form-control", @id = "CreatedOn", @rows = "3" })
+                    @Html.ValidationMessageFor(model => model.About, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <br />
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-success">Kaydet</button> &nbsp; &nbsp;
+                    <a href="@Url.Action("MyInfo","Account")" class="btn btn-secondary">Vazgeç</a>
+                </div>
+            </div>
+
+
+        }
+
+    </div>
+</div>

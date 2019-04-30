@@ -1,0 +1,11 @@
+﻿#zoomButton {
+    z-index: 100;
+    position: fixed;
+    bottom: 65px;
+    right: 60px;
+    display: none;
+}
+
+.yukari_boyut {
+    width: 30px;
+}

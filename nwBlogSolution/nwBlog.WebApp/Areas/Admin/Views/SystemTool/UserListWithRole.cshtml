@@ -1,0 +1,93 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model UserListWithRoleViewModel
+
+@{
+    ViewBag.Title = "UserListWithRole";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <a href="@Url.Action("UserListWithRole","SystemTool",new {@id=-1 })" class="btn btn-primary">Tümü</a>
+                <a href="@Url.Action("UserListWithRole","SystemTool",new {@id=2 })" class="btn btn-info">Kullanıcılar</a>
+                <a href="@Url.Action("UserListWithRole","SystemTool",new {@id=3 })" class="btn btn-warning">Yazarlar</a>
+                <a href="@Url.Action("UserListWithRole","SystemTool",new {@id=4 })" class="btn btn-success">Yöneticiler</a>
+            </div>
+        </div>
+
+        <div class="card shadow mb-4">          
+            <div class="card-body">             
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtUsers" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Kullanıcı Adı</th>
+                                <th>Ad - Soyad</th>
+                                <th>Kayıt Tarihi</th>
+                                <th class="text-center">Aktif</th>
+                                <th class="text-center">Durum</th>
+                                <th>Roller</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Users)
+                            {
+                                <tr>
+                                    <td>@item.Username</td>
+                                    <td>@(item.Name + " " + item.Surname)</td>
+                                    <td>@item.CreatedOn</td>
+                                    @if (item.IsActive)
+                                    {
+                                        <td class="text-success text-center"><span class="fa fa-check"></span></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger text-center"><span class="fa fa-times"></span></td>
+                                    }
+                                    @if (item.IsDeleted)
+                                    {
+                                        <td class="text-warning text-center"><span class="fa fa-times-circle"></span> Silinmiş</td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-primary text-center"><span class="fa fa-check-circle"></span> Mevcut</td>
+                                    }
+                                        <td>
+                                            @foreach (var item2 in item.UserRoles)
+                                            {
+                                                <span class="badge badge-danger" style="font-size:15px;">@item2.AppRole.Name</span>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a href="@Url.Action("EditUser","SystemTool",new {@userId=item.Id })" class="btn btn-secondary">
+                                                <span class="icon text-white-50">
+                                                    <i class="fas fa-user-cog"></i>
+                                                </span>                                               
+                                            </a>
+                                        </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtUsers').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

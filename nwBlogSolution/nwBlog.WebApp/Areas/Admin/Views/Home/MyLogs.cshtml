@@ -1,0 +1,62 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.Home
+@model MyLogsViewModel
+
+@{
+    ViewBag.Title = "MyLogs";
+}
+
+<!--Logs-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardLogs" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                <h6 class="m-0 font-weight-bold text-primary">İşlem Geçmişim</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <div class="collapse show" id="collapseCardLogs">
+                <div class="card-body">
+                    <table class="table table-bordered table-hover" id="dtLogs" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Action Name</th>
+                                <th>Controller Name</th>
+                                <th>Content</th>
+                                <th>Date Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Logs)
+                            {
+                                <tr>
+                                    <td>@item.ActionName</td>
+                                    <td>@item.ControllerName</td>
+                                    <td>@item.Content</td>
+                                    <td>@item.DateTime</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {     
+
+            $('#dtLogs').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+
+        });
+
+    </script>
+}

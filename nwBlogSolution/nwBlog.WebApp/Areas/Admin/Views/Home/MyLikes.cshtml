@@ -1,0 +1,56 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.Home
+@model MyLikesViewModel
+
+@{
+    ViewBag.Title = "MyLikes";
+}
+
+<!--Likes-->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Beğenilerim</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtLikes" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Blog</th>
+                                <th>Tarih</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Likes)
+                            {
+                            <tr>
+                                <td>@(item.Blog.Tittle.Length > 60 ? item.Blog.Tittle.Substring(0, 57) + "..." : item.Blog.Tittle)</td>
+                                <td>@item.CreatedOn</td>
+                            </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {       
+
+            $('#dtLikes').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

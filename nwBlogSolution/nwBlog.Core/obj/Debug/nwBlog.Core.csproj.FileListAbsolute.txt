@@ -1,0 +1,12 @@
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\bin\Debug\nwBlog.Core.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\bin\Debug\nwBlog.Core.pdb
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.csprojAssemblyReference.cache
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.csproj.CoreCompileInputs.cache
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.dll
+C:\Users\ali\source\repos\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\bin\Debug\nwBlog.Core.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\bin\Debug\nwBlog.Core.pdb
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.csprojAssemblyReference.cache
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.csproj.CoreCompileInputs.cache
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.dll
+C:\Users\ali\Desktop\Yeni klasör\nwBlogSolution\nwBlog.Core\obj\Debug\nwBlog.Core.pdb

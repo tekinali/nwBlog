@@ -1,0 +1,57 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.SystemTool
+@model VisitListViewModel
+
+@{
+    ViewBag.Title = "VisitList";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Ziyaretler</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover" id="dtVisits" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Kullanıcı</th>
+                                <th>Ip Adres</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.Visits)
+                            {
+                                <tr>
+                                    <td>@item.DateTime</td>
+                                    <td>@item.AppUser.Username</td>
+                                    <td>@item.IpAddress</td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section dataTable
+{
+    <script>
+        $(document).ready(function () {
+            $('#dtVisits').DataTable({
+                "language":
+                {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Turkish.json"
+                }
+            });
+        });
+
+    </script>
+}

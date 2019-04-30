@@ -1,0 +1,104 @@
+﻿@using nwBlog.WebApp.Areas.Admin.ViewModels.User
+@model EditViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Kullanıcı Bilgileri</h6>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @Html.HiddenFor(model => model.User.Id)
+
+
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="Username">Kullanıcı Adı</label>
+                            @Html.TextBoxFor(model => model.User.Username, new { @class = "form-control", @id = "Username" })
+                            @Html.ValidationMessageFor(model => model.User.Username, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="Name">Ad</label>
+                            @Html.TextBoxFor(model => model.User.Name, new { @class = "form-control", @id = "Name" })
+                            @Html.ValidationMessageFor(model => model.User.Name, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="Surname">Soyad</label>
+                            @Html.TextBoxFor(model => model.User.Surname, new { @class = "form-control", @id = "Surname" })
+                            @Html.ValidationMessageFor(model => model.User.Surname, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="Username">Hakkında</label>
+                            @Html.TextAreaFor(model => model.User.About, new { @class = "form-control", @id = "Username", @rows = "3" })
+                            @Html.ValidationMessageFor(model => model.User.About, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            @Html.LabelFor(model => model.User.CityId, htmlAttributes: new { @for = "City" })
+                            @Html.DropDownListFor(model => model.User.CityId, (SelectList)ViewBag.CityId, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="Email">Email</label>
+                            @Html.TextBoxFor(model => model.User.Email, new { @class = "form-control", @id = "Email" })
+                            @Html.ValidationMessageFor(model => model.User.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group col-md-2 text-center">
+                            <label for="IsActive">Active</label>
+                            @Html.EditorFor(model => model.User.IsActive, new { @class = "form-control", @id = "IsActives" })
+                        </div>
+
+                        <div class="form-group col-md-2 text-center">
+                            <label for="IsActive">Delete</label>
+                            @Html.EditorFor(model => model.User.IsDeleted, new { @class = "form-control", @id = "IsActives" })
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <a href="@Url.Action("Details","User",new {id=Model.User.Id })" class="btn btn-secondary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-arrow-left"></i>
+                                </span>
+                                <span class="text" style="width:100px;">Geri Dön</span>
+                            </a> &nbsp;
+                            <button type="submit" class="btn btn-warning btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text" style="width:100px;">Kaydet</span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                }
+            </div>
+
+        </div>
+       
+
+    </div>
+</div>

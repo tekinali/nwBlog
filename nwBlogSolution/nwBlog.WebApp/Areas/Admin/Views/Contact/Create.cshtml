@@ -1,0 +1,65 @@
+﻿@using nwBlog.Entities
+@model SentMail
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row">
+    <div class="col-lg-3">
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                @Html.Partial("_PartialParentMailPage")
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-9">
+        <div class="card shadow mb-4">
+            @using (Html.BeginForm())
+            {
+
+
+                <div class="card-body">
+
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-row">
+                        <div class="from-group col-md-12">
+                            <label for="ToEmail">Eposta Adresi</label>
+                            @Html.TextBoxFor(model => model.ToEmail, new { @class = "form-control", @id = "ToEmail" })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-row">
+                        <div class="from-group col-md-12">
+                            <label for="Subject">Konu</label>
+                            @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", @id = "Subject" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-row">
+                        <div class="from-group col-md-12">
+                            <label for="Subject">İçerik</label>
+                            @Html.TextAreaFor(model => model.Text, new { @class = "form-control", @id = "Subject", @rows = "5" })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-row">
+
+                        <div class="from-group col-md-3">
+                            <button type="submit" class="btn btn-primary">Gönder</button>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            }
+
+
+        </div>
+    </div>
+</div>
